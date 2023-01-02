@@ -1,0 +1,41 @@
+$base-color: #c6538c;
+$task-content-width: 700px;
+.mytask{
+    background: 'red';
+    .name-details > span{
+        padding-right: 3px;
+        cursor: pointer;
+    };
+
+    .list-section{
+        .section-item{
+            margin-bottom: 10px;
+        }
+    };
+    .add-task{
+        // background-color: red;
+        padding: 12px 0;
+        border-top: 1px solid #f0f0f0;
+    };
+    .add-section{
+        cursor: pointer;
+    }
+}
+
+.task-content{
+    border-left: 1px solid black;
+    position: absolute;
+    // min-width: $task-content-width;
+    top: 0;
+    right: 0;
+    margin-top: 64px;
+    height: 100%;
+    padding: 10px;
+    z-index: 1000;
+    background-color: white;
+    .header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
