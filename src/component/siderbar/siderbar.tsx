@@ -28,9 +28,9 @@ const Sidebar = () => {
 
   const menus = useMemo(() => {
     return [
-      getItem('Home', 'default', <PieChartOutlined />),
-      getItem('My task', 'default', <DesktopOutlined />),
-      getItem('Inbox', 'default', <ContainerOutlined />),
+      getItem('Home', 'home', <PieChartOutlined />),
+      getItem('My task', 'mytask', <DesktopOutlined />),
+      getItem('Inbox', 'inbox', <ContainerOutlined />),
       getItem('Team', 'default', <AppstoreOutlined />, menu),
     ];
   }, [menu]) 
@@ -63,7 +63,7 @@ const Sidebar = () => {
   };
 
   const onClick: MenuProps['onClick'] = (e) => {
-    if(e.key === 'default'){
+    if(e.key === 'home' || e.key === 'mytask' || e.key === 'inbox'){
       return navigate(`/`);
     }
     return navigate(`/project/${e.key}`);
