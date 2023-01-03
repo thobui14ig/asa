@@ -23,19 +23,41 @@ $task-content-width: 700px;
 }
 
 .task-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-left: 1px solid black;
     position: absolute;
-    // min-width: $task-content-width;
+    width: 700px;
     top: 0;
     right: 0;
     margin-top: 64px;
-    height: 100%;
-    padding: 10px;
+    height: 93vh;
     z-index: 1000;
     background-color: white;
     .header{
         display: flex;
+        flex: 1;
         justify-content: space-between;
+        padding: 10px;
+    };
+    .content{
+        background-color: #f5f4f3;
+        flex: 1;
+        padding: 10px;
+        .button-send-comment{
+            background-color: red;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            border: none;
+            border-radius: 4px
+        };
+        .comment{
+            width: 97%;
+            position: absolute;
+            bottom: 10px;
+        }
     }
 
 }

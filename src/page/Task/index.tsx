@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { addResource, getProject } from "../../api/resources/resource.api";
 import LISTSECTION from "../../type/section-type";
-import AddSection from "./add-section";
-import TaskContent from "./content";
+import AddSection from "./AddSection";
+import TaskContent from "./TaskContent";
 import './index.scss';
 
 const Mytask = () => {

@@ -5,8 +5,8 @@ import ModalAdd from './component/modal/modal';
 import Sidebar from './component/siderbar/siderbar';
 import './index.css';
 import Login from './page/Auth/login';
-import Mytask from "./page/my-task";
-import Teams from './page/teams';
+import Mytask from "./page/Task";
+import Teams from './page/Team';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
