@@ -7,8 +7,11 @@ import './index.css';
 import Login from './page/Auth/login';
 import Mytask from "./page/my-task";
 import Teams from './page/teams';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+ 
   const elements = useRoutes([
     {
       path: '/',
@@ -32,6 +35,7 @@ function App() {
     },
   ])
   return (
+    <>
     <Layout hasSider>
         <Sidebar/>
         <Layout
@@ -55,6 +59,8 @@ function App() {
         <ModalAdd />
        
     </Layout> 
+    <ToastContainer />
+    </>
   )
 }
 
