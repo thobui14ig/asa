@@ -1,27 +1,18 @@
 
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Modal } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addResource, getResource } from '../../api/resources/resource.api';
-import { handleSetTitle, handleShowModal } from '../../stores/modal-store';
-import { RootState } from '../../stores/store';
+import { useNavigate } from 'react-router';
 import './header.scss';
 
 const Headers = () => {
-    const { isOpen, type } = useSelector((state: RootState) => state.modal)
-    const dispatch = useDispatch()
-
+    const navigate = useNavigate();
+    const [isLogin, setLogin] = useState(0)
     
-
-    const showModal = () => {
-        dispatch(handleShowModal())
-        dispatch(handleSetTitle({
-            type: 'team'
-          }))
-        
-    };
+    // Login page
+    const handleLogin = () => {
+        navigate('/login')
+        setLogin(1)
+    }
 
     return(
         <>
@@ -34,10 +25,7 @@ const Headers = () => {
                 >
                 <div className='header-container'>
                     <h1>My task</h1>
-                    <div className='header-right'>
-                    
-                        <p>  <PlusOutlined style={{ marginRight: 20, cursor: 'pointer' }} onClick={showModal}/>thobui1996</p>
-                    </div>
+                    {isLogin == 0 && <span className='login' onClick={handleLogin}>Login</span> }                  
                 </div>
             
             </Header>     
