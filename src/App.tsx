@@ -4,6 +4,7 @@ import Headers from './component/header/header';
 import ModalAdd from './component/modal/modal';
 import Sidebar from './component/siderbar/siderbar';
 import './index.css';
+import Login from './page/Auth/login';
 import Mytask from "./page/my-task";
 import Teams from './page/teams';
 
@@ -24,6 +25,10 @@ function App() {
     {
       path: '/project/:id',
       element: <Mytask />
+    },
+    {
+      path: '/login',
+      element: <Login />
     },
   ])
   return (

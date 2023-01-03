@@ -1,11 +1,22 @@
 .header-container{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    // align-items: center;
-    // .header-right{
-    //     display: flex;
-    //     background-color: red;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
+}
+
+.login {
+    display: flex;
+    background-color: rgb(100, 97, 97);
+    height: 30px;
+    width: 70px;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.login:hover {
+    background-color: rgb(130, 85, 85);
+    cursor: pointer;
+    color: chartreuse;
 }
