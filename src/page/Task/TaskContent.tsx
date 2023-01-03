@@ -1,5 +1,6 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
 import TextArea from 'antd/lib/input/TextArea';
+import { useState } from 'react';
 import Comments from './Comment/Comment';
 import './index.scss';
 
@@ -9,6 +10,7 @@ interface ContentTaskType{
 }
 
 const TaskContent: React.FC<ContentTaskType> = ({contentTask, setIshowContentTask }) => {
+    const [rowComment, setRowcomment] = useState<number>(1)
 
     return (
       <div className="task-content">
@@ -21,8 +23,8 @@ const TaskContent: React.FC<ContentTaskType> = ({contentTask, setIshowContentTas
         <div className='content'>
           <div className='comment'>
             <Comments />
-            <TextArea rows={4}  />
-            <button className='button-send-comment'>submit</button>
+            <TextArea rows={rowComment} onClick={() => setRowcomment(4)} />
+            <button className='button-send-comment'>comment</button>
           </div>
 
         </div>

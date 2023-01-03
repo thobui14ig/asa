@@ -33,17 +33,18 @@ $task-content-width: 700px;
     right: 0;
     margin-top: 64px;
     height: 93vh;
-    padding: 10px;
     z-index: 1000;
     background-color: white;
     .header{
         display: flex;
         flex: 1;
         justify-content: space-between;
-        background-color: red;
+        padding: 10px;
     };
     .content{
+        background-color: #f5f4f3;
         flex: 1;
+        padding: 10px;
         .button-send-comment{
             background-color: red;
             position: absolute;
