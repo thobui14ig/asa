@@ -1,0 +1,11 @@
+.comment-item{
+    display: flex;
+    .comment-content{
+    };
+    .comment-avatar{
+        display: flex;
+        margin-right: 10px
+    }
+    margin-bottom: 10px;
+    // border: 1px solid black;
+}

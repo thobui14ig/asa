@@ -1,8 +1,8 @@
 import Layout, { Content } from 'antd/lib/layout/layout';
 import { Route, Routes, useRoutes } from "react-router-dom";
-import Headers from './component/header/header';
-import ModalAdd from './component/modal/modal';
-import Sidebar from './component/siderbar/siderbar';
+import Headers from './component/Header/Header';
+import ModalAdd from './component/Modal/Modal';
+import Sidebar from './component/Siderbar/Siderbar';
 import './index.css';
 import Login from './page/Auth/login';
 import Mytask from "./page/Task";
