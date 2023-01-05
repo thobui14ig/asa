@@ -1,11 +1,35 @@
-export default function Comments(){
+import Avatar from "../../../component/Avatar/Avatar";
+import { COMMENT } from "../../../type/task-type"
+import './comment.scss';
+interface COMMENTS{
+    comments: COMMENT[]
+}
+const Comments: React.FC<COMMENTS>  = ({ comments }) => {
+    console.log(comments)
     return(
         <>
-            <p>comment</p>
-            <p>comment</p>
+            {comments.map((item: COMMENT) => {
+                return(
+                    <div className="comment-item" key={item._id}>
+                        <div className="comment-avatar">
+                            <Avatar />
+                        </div>
+                        
+                        <div className="comment-content">
+                            <p>{item?.createdBy?.name} <span style={{ color: '#6d6e6f', fontSize: '12px' }}>1 phút trước</span></p>
+                            <p>{item?.name}</p>    
+                        </div>
+             
+                    </div>
+                  
+                )
+            })
 
-            <p>comment</p>
+            }
+
 
         </>
     )
 }
+
+export default Comments
