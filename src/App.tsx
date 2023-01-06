@@ -1,5 +1,7 @@
 import Layout, { Content } from 'antd/lib/layout/layout';
-import { Route, Routes, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Headers from './component/Header/Header';
 import ModalAdd from './component/Modal/Modal';
 import Sidebar from './component/Siderbar/Siderbar';
@@ -7,8 +9,6 @@ import './index.css';
 import Login from './page/Auth/login';
 import Mytask from "./page/Task";
 import Teams from './page/Team';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
  

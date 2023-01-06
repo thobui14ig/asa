@@ -4,10 +4,19 @@ import Sider from "antd/lib/layout/Sider";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getMenus } from "../../api/resources/resource.api";
+interface MENU{
+  key: string,
+  icon: string | null,
+  children: any,
+  label: string, 
+  onTitleClick: any
+}
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState<any>([]);
+  const [listProjectShowmore, setListProjectShowmore] = useState<any>()
+  const [data, setData] = useState([])
 
   const navigate = useNavigate();
 
@@ -40,6 +49,7 @@ const Sidebar = () => {
       try{
         const data = await getMenus()
         const menu = createMenu(data.data)
+        setData(data.data)
         setMenu(menu)
       }catch(err){
 
@@ -51,12 +61,17 @@ const Sidebar = () => {
 
   const createMenu = (data: any) => {
     return data.map((item: any) => {
-      const projects = item.projects.map((project: any) => getItem(project.name, project._id))
+      let projects = item.projects.map((project: any) => getItem(project.name, project._id))
+      const showMore = {
+        key: `showmore-${item?._id}`,
+        label: '...Show more',
+        icon: undefined, children: undefined,
+      }
+      projects = projects.splice(0, 3)
+      projects.push(showMore)
       return getItem(item.name, item?._id, null, projects, true)
     })
   }
-
-
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -66,7 +81,43 @@ const Sidebar = () => {
     if(e.key === 'home' || e.key === 'mytask' || e.key === 'inbox'){
       return navigate(`/`);
     }
+    
+
+    if (e.key.includes('showmore')) {
+      return createShowmoreShowless(e, 'showmore')
+    }
+   
+    if (e.key.includes('showless')) {
+      return createShowmoreShowless(e, 'showless')
+    }
+
     return navigate(`/project/${e.key}`);
+  }
+
+  const createShowmoreShowless = (e: any, showName: string) => {
+    const id = e.key.split('-').pop();
+
+    const name = showName === 'showless' ? 'showmore' : 'showless'
+    const lebel = showName === 'showless' ? '...show more' : '...show less'
+    const showMore = {
+      key: `${name}-${id}`,
+      label: lebel,
+      icon: undefined, children: undefined,
+    }
+
+    const projectSelected: any = data.find((item: any) => item._id === id)
+    let projects = [...projectSelected.projects].map((project: any) => getItem(project.name, project._id))
+    if(showName === 'showless'){
+      projects = projects.splice(0, 3)
+    }
+    
+    projects.push(showMore)
+
+    setMenu((prev: any) => {
+      const menuSelected: any = menu.find((item: any) => item.key === id)
+      menuSelected.children = projects
+      return [...prev]
+    })
   }
 
   const onTitleClick = (e: any) => {
