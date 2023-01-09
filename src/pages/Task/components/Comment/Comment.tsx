@@ -1,5 +1,5 @@
 import Avatar from "../../../../component/Avatar/Avatar";
-import { COMMENT } from "../../../../type/reaource-type"
+import { COMMENT } from "../../../../type/resource-type"
 import './comment.scss';
 interface COMMENTS{
     comments: COMMENT[]

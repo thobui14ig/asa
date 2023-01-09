@@ -6,7 +6,6 @@ export default interface TASK extends CREATEUPDATE{
     comments: COMMENT[]
 }
 
-
 export interface COMMENT extends CREATEUPDATE{
   _id: string,
   name: string,

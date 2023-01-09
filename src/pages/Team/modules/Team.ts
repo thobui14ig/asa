@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { getTeam } from "../../../api/resources/resource.api";
 import { handleSetTitle, handleShowModal } from "../../../stores/modal-store";
 import { setResource } from "../../../stores/resource-store";
-import { PROJECT } from "../../../type/reaource-type";
+import { PROJECT } from "../../../type/resource-type";
 
  const useTeam = () => {
     const { id } = useParams()
