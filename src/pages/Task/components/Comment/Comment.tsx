@@ -1,11 +1,10 @@
-import Avatar from "../../../component/Avatar/Avatar";
-import { COMMENT } from "../../../type/task-type"
+import Avatar from "../../../../component/Avatar/Avatar";
+import { COMMENT } from "../../../../type/reaource-type"
 import './comment.scss';
 interface COMMENTS{
     comments: COMMENT[]
 }
 const Comments: React.FC<COMMENTS>  = ({ comments }) => {
-    console.log(comments)
     return(
         <>
             {comments.map((item: COMMENT) => {

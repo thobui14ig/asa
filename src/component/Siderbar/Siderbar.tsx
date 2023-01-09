@@ -15,7 +15,6 @@ interface MENU{
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [menu, setMenu] = useState<any>([]);
-  const [listProjectShowmore, setListProjectShowmore] = useState<any>()
   const [data, setData] = useState([])
 
   const navigate = useNavigate();
@@ -49,8 +48,8 @@ const Sidebar = () => {
       try{
         const data = await getMenus()
         const menu = createMenu(data.data)
-        setData(data.data)
         setMenu(menu)
+        setData(data.data)
       }catch(err){
 
       }
@@ -113,8 +112,8 @@ const Sidebar = () => {
     
     projects.push(showMore)
 
-    setMenu((prev: any) => {
-      const menuSelected: any = menu.find((item: any) => item.key === id)
+    setMenu((prev: MENU[]) => {
+      const menuSelected: MENU = menu.find((item: MENU) => item.key === id)
       menuSelected.children = projects
       return [...prev]
     })

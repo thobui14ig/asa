@@ -1,5 +1,6 @@
-import TASK from "../../type/task-type";
+import TASK from "../../type/reaource-type";
 import http from "../http";
+
 
 export const addResource = (student: any) => http.post('/resources/insert', student)
 
