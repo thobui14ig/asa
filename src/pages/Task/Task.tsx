@@ -7,7 +7,7 @@ import './index.scss';
 import useTask from "./modules/useTask";
 
 
-const TASK = () => {
+const Task = () => {
   const { checkIsExitsIdSection, contentTask, handleAddTask, handleChangeTitle, handleKeyDown, handleSelectIdChangeTitle, handleShowTaskInSection, idChangeTitle, isAddTask, isShowContentTask, section, setIshowContentTask,setcontentTask, titleName, setIdSectionSelected, setIsAddTask, setTaskName, taskName } = useTask();
     
   return(
@@ -96,4 +96,4 @@ const TASK = () => {
       
   )
 }
-export default TASK
+export default Task

@@ -5,8 +5,8 @@ import Headers from './component/Header/Header-old';
 import ModalAdd from './component/Modal/Modal';
 import Sidebar from './component/Siderbar/Siderbar';
 import './index.css';
-import { Login, Team } from './pages';
-import TASK from './pages/Task/Task';
+import { Login, Task, Team } from './pages';
+
 
 function App() {
   const elements = useRoutes([
@@ -24,7 +24,7 @@ function App() {
     },
     {
       path: '/project/:id',
-      element: <TASK />
+      element: <Task />
     },
     {
       path: '/login',
