@@ -1,17 +1,14 @@
 import Layout, { Content } from 'antd/lib/layout/layout';
 import { useRoutes } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Headers from './component/Header/Header';
+import Headers from './component/Header/Header-old';
 import ModalAdd from './component/Modal/Modal';
 import Sidebar from './component/Siderbar/Siderbar';
 import './index.css';
-import Login from './page/Auth/login';
-import Mytask from "./page/Task";
-import Teams from './page/Team';
+import { Login, Team } from './pages';
+import TASK from './pages/Task/Task';
 
 function App() {
- 
   const elements = useRoutes([
     {
       path: '/',
@@ -23,19 +20,25 @@ function App() {
     },
     {
       path: '/team/:id',
-      element: <Teams />
+      element: <Team />
     },
     {
       path: '/project/:id',
-      element: <Mytask />
+      element: <TASK />
     },
     {
       path: '/login',
       element: <Login />
     },
   ])
+
+  const token = localStorage.getItem('accessToken')
+
+  if (!token) {
+    return <Login/>
+  }
+
   return (
-    <>
     <Layout hasSider>
         <Sidebar/>
         <Layout
@@ -59,8 +62,6 @@ function App() {
         <ModalAdd />
        
     </Layout> 
-    <ToastContainer />
-    </>
   )
 }
 
