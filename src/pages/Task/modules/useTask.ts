@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { addResource, getProject } from "../../../api/resources/resource.api"
-import { SECTION } from "../../../type/reaource-type"
+import { SECTION } from "../../../type/resource-type"
 
 const useTask = () => {
     const { id } = useParams()

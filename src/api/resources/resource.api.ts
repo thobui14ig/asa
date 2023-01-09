@@ -1,4 +1,4 @@
-import TASK from "../../type/reaource-type";
+import TASK from "../../type/resource-type";
 import http from "../http";
 
 

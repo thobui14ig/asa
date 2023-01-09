@@ -1,10 +1,11 @@
 import { CaretDownOutlined, CaretLeftOutlined, CheckOutlined, DoubleRightOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, List } from "antd";
+import AddSection from "../../pages/Task/components/AddSection";
+import TaskContent from "../../pages/Task/components/TaskContent";
+import useTask from "../../pages/Task/modules/useTask";
 import { SECTION } from "../../type/resource-type";
-import AddSection from "./components/AddSection";
-import TaskContent from "./components/TaskContent";
 import './index.scss';
-import useTask from "./modules/useTask";
+
 
 
 const TASK = () => {

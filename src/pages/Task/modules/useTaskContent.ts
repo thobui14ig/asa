@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { addResource, getComment } from "../../../api/resources/resource.api"
-import TASK from "../../../type/reaource-type"
+import TASK from "../../../type/resource-type"
 
 const useTaskContent = (contentTask: any) => {
     const { _id: taskId } = contentTask

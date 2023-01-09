@@ -1,6 +1,6 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
 import TextArea from 'antd/lib/input/TextArea';
-import { COMMENT } from '../../../type/reaource-type';
+import { COMMENT } from '../../../type/resource-type';
 import useTaskContent from '../modules/useTaskContent';
 import Comments from './Comment/Comment';
 
