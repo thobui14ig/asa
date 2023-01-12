@@ -63,11 +63,13 @@ const Sidebar = () => {
       let projects = item.projects.map((project: any) => getItem(project.name, project._id))
       const showMore = {
         key: `showmore-${item?._id}`,
-        label: '...Show more',
+        label: 'More...',
         icon: undefined, children: undefined,
       }
       projects = projects.splice(0, 3)
-      projects.push(showMore)
+      if(item.projects.length>3){
+        projects.push(showMore)
+      }
       return getItem(item.name, item?._id, null, projects, true)
     })
   }
@@ -97,7 +99,7 @@ const Sidebar = () => {
     const id = e.key.split('-').pop();
 
     const name = showName === 'showless' ? 'showmore' : 'showless'
-    const lebel = showName === 'showless' ? '...show more' : '...show less'
+    const lebel = showName === 'showless' ? 'More...' : 'Less'
     const showMore = {
       key: `${name}-${id}`,
       label: lebel,
