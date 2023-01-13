@@ -1,17 +1,16 @@
-import {
-  CaretDownOutlined,
-  CaretUpOutlined,
-} from "@ant-design/icons";
+import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import Item from "./Item.js";
 
 interface Props {
   item: any;
+  listHeight: Number;
 }
 
-export default function RenderItem({item}:Props ) {
+export default function RenderItem({ item, listHeight }: Props) {
   var [ToggleMenu, setMenu] = useState(false);
-  console.log(item.menu)
+  console.log(1);
+
   return (
     <li>
       <div
@@ -20,16 +19,23 @@ export default function RenderItem({item}:Props ) {
       >
         {item.icon}
         <span className="ml-2">{item.title}</span>
-        {item.menu !== undefined && ToggleMenu && (
+        {item.menu !== undefined && !ToggleMenu && (
           <CaretDownOutlined className="flex-1 text-end" />
         )}
-        {item.menu !== undefined && !ToggleMenu && (
+        {item.menu !== undefined && ToggleMenu && (
           <CaretUpOutlined className="flex-1 text-end" />
         )}
       </div>
-      
+
       {/* render children */}
-      <Item Render={item.menu} className={`${ToggleMenu?"block":"hidden"}`}/>
+      <Item
+        style={{
+          maxHeight: listHeight + "px",
+          overflow: "auto",
+        }}
+        Render={item.menu}
+        className={`${ToggleMenu ? "block" : "hidden"}`}
+      />
     </li>
   );
 }

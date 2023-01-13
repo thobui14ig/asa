@@ -8,9 +8,9 @@ import {
   UpOutlined,
 } from "@ant-design/icons";
 import { getMenus } from "../../api/resources/resource.api";
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import RenderItem from "./RenderItem";
-import "./Siderbar.scss"
+import "./Siderbar.scss";
 
 interface Props {
   open: boolean;
@@ -34,8 +34,10 @@ export default function SiderBar({ open, toggle }: Props) {
     { title: "Home", icon: <PieChartOutlined /> },
     { title: "My task", icon: <DesktopOutlined /> },
     { title: "Inbox", icon: <ContainerOutlined /> },
-    { title: "Team", icon: <AppstoreOutlined />, menu: data},
+    { title: "Team", icon: <AppstoreOutlined />, menu: data },
   ];
+
+  console.log();
 
   return (
     <div
@@ -54,7 +56,7 @@ export default function SiderBar({ open, toggle }: Props) {
       <div>
         <ul>
           {SideBarItems.map((item, index) => {
-            return <RenderItem item={item} key={index} />;
+            return <RenderItem item={item} key={index} listHeight={document.body.scrollHeight - (data.length * 44 + 72)}/>;
           })}
         </ul>
       </div>
