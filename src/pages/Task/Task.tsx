@@ -12,7 +12,7 @@ const Task = () => {
     
   return(
       <div className="mytask">
-          <Button style={{ marginBottom: 16 }} onClick={() => handleAddTask()}  type="primary"><PlusOutlined />Add task</Button>
+          <Button style={{ marginBottom: 16, background: '#1677ff', color: '#fff' }} onClick={() => handleAddTask()}  type="default"><PlusOutlined />Add task</Button>
           <h1>List task</h1>
 
           <div className="list-section" style={{ width: '100%' }} id="section">

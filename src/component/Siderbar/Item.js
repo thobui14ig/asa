@@ -1,10 +1,11 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Item({ Render, className, style}) {
   var [open, setopen] = useState([]);
-  console.log(1);
+  const navigate = useNavigate();
+
   return (
     <ul className={className} style={style}>
       {typeof Render == "object" &&
@@ -18,7 +19,9 @@ export default function Item({ Render, className, style}) {
                     var newOpen = open.filter(
                       (result) => result !== value.name
                     );
+                    let { _id: id } = value
                     setopen(newOpen);
+                    navigate(`/team/${id}`);
                   } else {
                     setopen([...open, value.name]);
                   }
