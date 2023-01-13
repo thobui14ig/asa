@@ -37,8 +37,6 @@ const Headers = () => {
                         <p>  <PlusOutlined style={{ marginRight: 20, cursor: 'pointer' }} onClick={showModal}/>thobui1996</p>
                     </div>
                 </div> */}
-                <NewHeader />
-            
             </Header>     
 
 

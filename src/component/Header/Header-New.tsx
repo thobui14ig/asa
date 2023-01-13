@@ -1,12 +1,22 @@
 import {
+  MenuUnfoldOutlined,
   PlusCircleOutlined,
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
 import { Divider, Dropdown, Space, Tooltip } from "antd";
 import React, { useRef, useState } from "react";
+import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../stores/store";
+import { Header } from "antd/lib/layout/layout";
 
-export default function NewHeader() {
+interface Props {
+  open: boolean,
+  toggle: Function
+}
+
+export default function NewHeader({open,toggle}:Props) {
   var items = [
     {
       key: "1",
@@ -64,11 +74,33 @@ export default function NewHeader() {
 
   var [tooltip, setTooltip] = useState(false);
 
+  const { isOpen, type } = useSelector((state: RootState) => state.modal);
+  const dispatch = useDispatch();
+
+  const showModal = () => {
+    dispatch(handleShowModal());
+    dispatch(
+      handleSetTitle({
+        type: "team",
+      })
+    );
+  };
+
   return (
-    <div className="flex justify-between items-center h-full ">
+    // header layout
+    <Header
+      className="site-layout-background"
+      style={{
+        padding: "0 16px",
+        borderBottom: "1px solid red",
+      }}
+    >
+      <div className="flex justify-between items-center h-full ">
       {/* Left Header */}
       <div className="">
-        <div></div>
+        <div>
+          {!open && <MenuUnfoldOutlined className="cursor-pointer text-xl" onClick={()=>toggle()}/>}
+        </div>
       </div>
 
       {/* Right Header */}
@@ -85,7 +117,7 @@ export default function NewHeader() {
           />
         </div>
 
-        <PlusCircleOutlined className="text-3xl text-[#f06a6a] ml-3 h-full flex items-center cursor-pointer" />
+        <PlusCircleOutlined className="text-3xl text-[#f06a6a] ml-3 h-full flex items-center cursor-pointer" onClick={showModal}/>
 
         <button className="bg-[#f1bd6c] px-3 rounded-lg ml-3 flex items-center h-full">
           Upgrate
@@ -128,5 +160,6 @@ export default function NewHeader() {
         </div>
       </div>
     </div>
+    </Header>
   );
 }

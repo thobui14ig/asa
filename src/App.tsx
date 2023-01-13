@@ -1,14 +1,19 @@
 import Layout, { Content } from 'antd/lib/layout/layout';
+import { useState } from 'react';
 import { useRoutes } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import NewHeader from './component/Header/Header-New';
 import Headers from './component/Header/Header-old';
 import ModalAdd from './component/Modal/Modal';
 import Sidebar from './component/Siderbar/Siderbar';
+import SiderBar from './component/Siderbar/SiderBar-New';
 import './index.css';
 import { Login, Task, Team } from './pages';
 
 
 function App() {
+  var [SidebarToggle, setSidebar] = useState(true);
+  const ToggleSidebar = () => setSidebar(!SidebarToggle);
   const elements = useRoutes([
     {
       path: '/',
@@ -40,15 +45,16 @@ function App() {
 
   return (
     <Layout hasSider>
-        <Sidebar/>
+        {/* <Sidebar/> */}
+        <SiderBar open={SidebarToggle} toggle={ToggleSidebar} />
         <Layout
             className="site-layout"
             style={{
-            marginLeft: 200,
             background: 'white'
             }}
           >
-          <Headers/>
+          {/* <Headers/> */}
+          <NewHeader open={SidebarToggle} toggle={ToggleSidebar} />
           <Content
             style={{
               padding: 16,
