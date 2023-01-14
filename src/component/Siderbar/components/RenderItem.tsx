@@ -1,6 +1,6 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-import Item from "./Item.js";
+import Item from "./Item";
 
 interface Props {
   item: any;
@@ -9,7 +9,6 @@ interface Props {
 
 export default function RenderItem({ item, listHeight }: Props) {
   var [ToggleMenu, setMenu] = useState(false);
-  console.log(1);
 
   return (
     <li>

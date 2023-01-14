@@ -10,11 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../stores/store";
 import { Header } from "antd/lib/layout/layout";
 import "./Btn.scss";
+import TagName from "../TagName/TagName";
 
 interface Props {
   open: boolean;
   toggle: Function;
-  className: any
+  className: any;
 }
 
 export default function NewHeader({ open, toggle, className }: Props) {
@@ -70,7 +71,7 @@ export default function NewHeader({ open, toggle, className }: Props) {
   ];
 
   var [tooltip, setTooltip] = useState(false);
-
+  var [searchText, setSearchText] = useState("");
   const { isOpen, type } = useSelector((state: RootState) => state.modal);
   const dispatch = useDispatch();
 
@@ -90,20 +91,21 @@ export default function NewHeader({ open, toggle, className }: Props) {
       style={{
         padding: "0 16px",
         borderBottom: "1px solid red",
-        transition: "all 1s ease"
+        transition: "all 1s ease",
       }}
     >
       <div className="flex justify-between items-center h-full ">
         {/* Left Header */}
-        <div className={`${!open?"p-2 hover:bg-[#0000003d] rounded-md cursor-pointer overflow-hidden":""}`}>
+        <div
+          className={`${
+            !open
+              ? "p-2 hover:bg-[#0000003d] rounded-md cursor-pointer overflow-hidden"
+              : ""
+          }`}
+        >
           {!open && (
-            <div
-              className=""
-              onClick={() => toggle()}
-            >
-              <MenuUnfoldOutlined
-                className="text-xl flex items-center"
-              />
+            <div className="" onClick={() => toggle()}>
+              <MenuUnfoldOutlined className="text-xl flex items-center" />
             </div>
           )}
         </div>
@@ -111,11 +113,14 @@ export default function NewHeader({ open, toggle, className }: Props) {
         {/* Right Header */}
         <div className="flex items-center px-6 h-9">
           <div className="relative h-full flex items-center">
-            <input
-              className="h-[30px] overflow-hidden rounded-2xl bg-transparent border border-solid border-[#cfcbcb] pl-8 pr-4 w-[140px] text-white focus-visible:border-[#a2a0a2] focus-visible:outline-[#4573d2] outline-3 outline-solid focus:w-[480px] hover:border-[#6a696a]"
-              style={{ transition: "all .3s ease" }}
-              placeholder="Search"
-            />
+              <input
+                value={searchText}
+                onChange={(e)=>setSearchText(e.target.value)}
+                className="h-[30px] overflow-hidden rounded-2xl bg-transparent border border-solid border-[#cfcbcb] pl-8 pr-4 w-[140px] text-black focus-visible:border-[#a2a0a2] focus-visible:outline-[#4573d2] outline-3 outline-solid focus:w-[480px] hover:border-[#6a696a]"
+                style={{ transition: "all .3s ease" }}
+                placeholder="Search"
+              />
+              <TagName value={searchText}/>
             <SearchOutlined
               className="absolute text-[#6a696a] top-[50%] left-[8px] ml-0"
               style={{ transform: "translateY(-50%)" }}
@@ -126,7 +131,6 @@ export default function NewHeader({ open, toggle, className }: Props) {
             className="text-3xl text-[#f06a6a] ml-3 h-full flex items-center cursor-pointer"
             onClick={showModal}
           />
-          {/* bg-[#f1bd6c] rounded-lg */}
           <button className=" px-3 ml-3 flex items-center h-full">
             Upgrate
           </button>

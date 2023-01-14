@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import NewHeader from "./component/Header/Header-New";
 import Headers from "./component/Header/Header-old";
 import ModalAdd from "./component/Modal/Modal";
-import Sidebar from "./component/Siderbar/Siderbar";
 import SiderBar from "./component/Siderbar/SiderBar-New";
 import "./index.css";
 import { Login, Task, Team } from "./pages";
@@ -44,7 +43,6 @@ function App() {
 
   return (
     <Layout hasSider>
-      {/* <Sidebar/> */}
       <SiderBar open={SidebarToggle} toggle={ToggleSidebar} />
       <Layout
         className="site-layout"
