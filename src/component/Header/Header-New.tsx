@@ -129,6 +129,7 @@ export default function NewHeader({ open, toggle }: Props) {
             Upgrate
           </button>
 
+          {/* avatar */}
           <div className="w-7 h-7 overflow-hidden rounded-[50%] ml-3 cursor-pointer">
             <Dropdown
               menu={{
