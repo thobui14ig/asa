@@ -2,13 +2,11 @@ import {
   AppstoreOutlined,
   ContainerOutlined,
   DesktopOutlined,
-  DownOutlined,
   MenuFoldOutlined,
   PieChartOutlined,
-  UpOutlined,
 } from "@ant-design/icons";
 import { getMenus } from "../../api/resources/resource.api";
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import RenderItem from "./RenderItem";
 import "./Siderbar.scss";
 
@@ -42,21 +40,31 @@ export default function SiderBar({ open, toggle }: Props) {
   return (
     <div
       className={`Navbar bg-[#1e1f21] h-screen w-full max-w-[240px] absolute ${
-        open ? "left-0" :"left-[-100%]"
+        open ? "left-0 opacity-100" : "left-[-100%] opacity-0"
       }`}
       style={{ transition: "all 1s ease" }}
     >
       <header className="h-[72px] flex items-center justify-between px-4">
         <h1 className="text-white text-3xl">Asana</h1>
-        <MenuFoldOutlined
-          className="text-white text-xl cursor-pointer"
+        <div
+          className="p-2 hover:bg-[#ffffff14] rounded-md cursor-pointer"
           onClick={() => toggle()}
-        />
+        >
+          <MenuFoldOutlined className="text-white text-xl flex items-center" />
+        </div>
       </header>
       <div>
         <ul>
           {SideBarItems.map((item, index) => {
-            return <RenderItem item={item} key={index} listHeight={document.body.scrollHeight - (data.length * 44 + 72)}/>;
+            return (
+              <RenderItem
+                item={item}
+                key={index}
+                listHeight={
+                  document.body.scrollHeight - (data.length * 44 + 72)
+                }
+              />
+            );
           })}
         </ul>
       </div>

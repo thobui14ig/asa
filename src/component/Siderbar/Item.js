@@ -1,10 +1,11 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import React, { useRef, useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
+import "./More-Less.scss"
+import "./Dropdown-animation.scss"
 
-export default function Item({ Render, className, style}) {
+export default function Item({ Render, className, style }) {
   var [open, setopen] = useState([]);
-  console.log(1);
   return (
     <ul className={className} style={style}>
       {typeof Render == "object" &&
@@ -44,7 +45,7 @@ export default function Item({ Render, className, style}) {
 var Subitem = ({ value, name }) => {
   var [more, setmore] = useState([]);
   return (
-    <ul className={`${name.includes(value.name) ? "block" : "hidden"}`}>
+    <ul className={`${name.includes(value.name) ? "block" : "hidden"} DropdownList`}>
       {value.projects.length <= 3 ? (
         value.projects.map((project, key) => (
           <li key={key}>
@@ -76,22 +77,22 @@ var Subitem = ({ value, name }) => {
           })}
           {!more.includes(value.name) && (
             <li
-              className="text-white cursor-pointer text-lg px-4 py-2 pl-14 hover:bg-[#ffffff33] flex items-center"
+              className="text-white cursor-pointer text-lg px-4 py-2 pl-14 hover:bg-[#ffffff33] flex w-full toggle more"
               onClick={() => {
                 setmore([...more, value.name]);
               }}
             >
-              More
+              <span className="text-center border-b border-white">More</span>
             </li>
           )}
           {more.includes(value.name) && (
             <li
-              className="text-white cursor-pointer text-lg px-4 py-2 pl-14 hover:bg-[#ffffff33] flex items-center"
+              className="text-white cursor-pointer text-lg px-4 py-2 pl-14 hover:bg-[#ffffff33] flex w-full toggle less"
               onClick={() => {
                 setmore(more.filter((result) => result !== value.name));
               }}
             >
-              Less
+              <span className="text-center border-b border-white">Less</span>
             </li>
           )}
         </>

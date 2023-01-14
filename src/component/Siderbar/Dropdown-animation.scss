@@ -1,0 +1,18 @@
+.DropdownList {
+  animation: rotateMenu 400ms ease-in-out forwards;
+  transform-origin: top center;
+}
+@keyframes rotateMenu {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  70% {
+    transform: rotateX(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
