@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Provider } from 'react-redux';
 import { store } from './stores/store';
 import { ToastContainer } from 'react-toastify';
+import MembersModal from './component/Members/Members';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -19,6 +20,7 @@ root.render(
         <Provider store={store}>
           <App />
           <ToastContainer />
+          <MembersModal/>
         </Provider>
       </QueryClientProvider>
     

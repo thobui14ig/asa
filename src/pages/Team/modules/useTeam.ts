@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { getTeam } from "../../../api/resources/resource.api";
 import { handleSetTitle, handleShowModal } from "../../../stores/modal-store";
 import { setResource, setResourceTitle } from "../../../stores/resource-store";
@@ -8,6 +8,7 @@ import { PROJECT } from "../../../type/resource-type";
 
  const useTeam = () => {
     const { id } = useParams()
+    const navigate = useNavigate(); 
     const dispatch = useDispatch()
     const [data, setData] = useState<PROJECT[]>([]);
 
@@ -31,7 +32,7 @@ import { PROJECT } from "../../../type/resource-type";
       }))
     }
 
-    return { data, handleAddProject }
+    return { data, handleAddProject, navigate }
   }
 
   export default useTeam
