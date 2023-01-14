@@ -12,4 +12,4 @@ export const getTeam = (id: string) => http.get(`/resources/team/${id}`)
 
 export const getProject = (id: string) => http.get(`/resources/project/${id}`)
 
-export const getComment = (id: string) => http.get<TASK>(`/resources/comments/${id}`)
+export const getComment = (id: string) => http.get<TASK>(`/resources/task/${id}`)

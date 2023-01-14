@@ -1,7 +1,6 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import Item from "./Item.js";
-import "./Dropdown-animation.scss";
 
 interface Props {
   item: any;
@@ -10,6 +9,7 @@ interface Props {
 
 export default function RenderItem({ item, listHeight }: Props) {
   var [ToggleMenu, setMenu] = useState(false);
+  console.log(1);
 
   return (
     <li>
@@ -34,7 +34,7 @@ export default function RenderItem({ item, listHeight }: Props) {
           overflow: "auto",
         }}
         Render={item.menu}
-        className={`${ToggleMenu ? "block" : "hidden"} DropdownList`}
+        className={`${ToggleMenu ? "block" : "hidden"}`}
       />
     </li>
   );
