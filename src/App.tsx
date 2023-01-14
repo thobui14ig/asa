@@ -53,7 +53,7 @@ function App() {
         }}
       >
         {/* <Headers/> */}
-        <NewHeader open={SidebarToggle} toggle={ToggleSidebar} />
+        <NewHeader open={SidebarToggle} toggle={ToggleSidebar} className={`${SidebarToggle ? "ml-60" : "ml-0"}`}/>
         <Content
           className={`${SidebarToggle ? "ml-60" : "ml-0"}`}
           style={{

@@ -14,9 +14,10 @@ import "./Btn.scss";
 interface Props {
   open: boolean;
   toggle: Function;
+  className: any
 }
 
-export default function NewHeader({ open, toggle }: Props) {
+export default function NewHeader({ open, toggle, className }: Props) {
   var items = [
     {
       key: "1",
@@ -85,18 +86,19 @@ export default function NewHeader({ open, toggle }: Props) {
   return (
     // header layout
     <Header
-      className="site-layout-background"
+      className={`site-layout-background ${className}`}
       style={{
         padding: "0 16px",
         borderBottom: "1px solid red",
+        transition: "all 1s ease"
       }}
     >
       <div className="flex justify-between items-center h-full ">
         {/* Left Header */}
-        <div className="">
+        <div className={`${!open?"p-2 hover:bg-[#0000003d] rounded-md cursor-pointer overflow-hidden":""}`}>
           {!open && (
             <div
-              className="p-2 hover:bg-[#00000014] rounded-md cursor-pointer overflow-hidden"
+              className=""
               onClick={() => toggle()}
             >
               <MenuUnfoldOutlined
