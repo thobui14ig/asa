@@ -45,13 +45,13 @@ function App() {
 
   return (
     <Layout hasSider>
-        <Sidebar/>
-        {/* <SiderBar open={SidebarToggle} toggle={ToggleSidebar} /> */}
+        {/* <Sidebar/> */}
+        <SiderBar open={SidebarToggle} toggle={ToggleSidebar} />
         <Layout
             className="site-layout"
             style={{
             background: 'white',
-            marginLeft: 200,
+            marginLeft: 250,
             }}
           >
           {/* <Headers/> */}

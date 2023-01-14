@@ -1,15 +1,13 @@
 import {
   MenuUnfoldOutlined,
-  PlusCircleOutlined,
-  PlusOutlined,
-  SearchOutlined,
+  PlusCircleOutlined, SearchOutlined
 } from "@ant-design/icons";
-import { Divider, Dropdown, Space, Tooltip } from "antd";
-import React, { useRef, useState } from "react";
-import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../stores/store";
+import { Dropdown, Tooltip } from "antd";
 import { Header } from "antd/lib/layout/layout";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
+import { RootState } from "../../stores/store";
 
 interface Props {
   open: boolean,
@@ -17,7 +15,7 @@ interface Props {
 }
 
 export default function NewHeader({open,toggle}:Props) {
-  var items = [
+  let items = [
     {
       key: "1",
       label: (
@@ -72,10 +70,9 @@ export default function NewHeader({open,toggle}:Props) {
     },
   ];
 
-  var [tooltip, setTooltip] = useState(false);
-
-  const { isOpen, type } = useSelector((state: RootState) => state.modal);
+  let [tooltip, setTooltip] = useState(false);
   const dispatch = useDispatch();
+  const { resourceTitle } = useSelector((state: RootState) => state.resource)
 
   const showModal = () => {
     dispatch(handleShowModal());
@@ -99,6 +96,7 @@ export default function NewHeader({open,toggle}:Props) {
       {/* Left Header */}
       <div className="">
         <div>
+          <h1 className="text-2xl">{resourceTitle}</h1>
           {!open && <MenuUnfoldOutlined className="cursor-pointer text-xl" onClick={()=>toggle()}/>}
         </div>
       </div>

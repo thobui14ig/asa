@@ -11,7 +11,7 @@ export default function AddSection() {
           <h1 className='title' onClick={() => setIsAddSection(true)}> <PlusOutlined style={{ marginRight: 5 }} />Add section</h1>
       :
       <>
-          <CaretDownOutlined /><input style={{ minWidth: 500 }} value={sectionName} onChange={(e) => setSectionName(e.target.value)} onKeyDown={handleKeyDown}/>
+          <CaretDownOutlined /><input style={{ minWidth: 500, border: '1px solid black' }} value={sectionName} onChange={(e) => setSectionName(e.target.value)} onKeyDown={handleKeyDown}/>
       </>
       
       }
