@@ -3,12 +3,11 @@ import {
   ContainerOutlined,
   DesktopOutlined,
   MenuFoldOutlined,
-  PieChartOutlined,
+  PieChartOutlined
 } from "@ant-design/icons";
-import { getMenus } from "../../api/resources/resource.api";
-import React, { useEffect, useState } from "react";
-import RenderItem from "./RenderItem";
-import "./Siderbar.scss";
+import useSidebar from "./modules/useSiderbar";
+import RenderItem from "./components/RenderItem";
+import "./styles/Siderbar.scss";
 
 interface Props {
   open: boolean;
@@ -16,17 +15,7 @@ interface Props {
 }
 
 export default function SiderBar({ open, toggle }: Props) {
-  var [data, setdata] = useState([]);
-
-  useEffect(() => {
-    const fetch = async () => {
-      try {
-        const data = await getMenus();
-        setdata(data.data);
-      } catch (err) {}
-    };
-    fetch();
-  }, []);
+  const { data } = useSidebar()
 
   const SideBarItems = [
     { title: "Home", icon: <PieChartOutlined /> },
@@ -34,8 +23,6 @@ export default function SiderBar({ open, toggle }: Props) {
     { title: "Inbox", icon: <ContainerOutlined /> },
     { title: "Team", icon: <AppstoreOutlined />, menu: data },
   ];
-
-  console.log();
 
   return (
     <div

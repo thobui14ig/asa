@@ -1,7 +1,8 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-import Item from "./Item.js";
-import "./Dropdown-animation.scss";
+
+import "../styles/Dropdown-animation.scss";
+import Item from "./Item";
 
 interface Props {
   item: any;
@@ -9,7 +10,7 @@ interface Props {
 }
 
 export default function RenderItem({ item, listHeight }: Props) {
-  var [ToggleMenu, setMenu] = useState(false);
+  let [ToggleMenu, setMenu] = useState(false);
 
   return (
     <li>

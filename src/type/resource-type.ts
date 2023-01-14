@@ -32,6 +32,14 @@ export interface SECTION extends CREATEUPDATE{
   tasks: TASK[]
 }
 
+export interface TEAM extends CREATEUPDATE{
+    _id: string,
+    name: string,
+    resource_type: string,
+    projects: PROJECT[],
+    createdBy: CREATEBY,
+  }
+
 interface CREATEUPDATE{
   createdAt: string,
   updatedAt: string,
