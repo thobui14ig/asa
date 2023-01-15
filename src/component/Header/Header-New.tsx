@@ -4,13 +4,14 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Dropdown, Tooltip } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../stores/store";
 import { Header } from "antd/lib/layout/layout";
 import "./Btn.scss";
 import TagName from "../TagName/TagName";
+import DeBounce from "../TagName/components/DeBounce";
 
 interface Props {
   open: boolean;
@@ -72,7 +73,7 @@ export default function NewHeader({ open, toggle, className }: Props) {
 
   var [tooltip, setTooltip] = useState(false);
   var [searchText, setSearchText] = useState("");
-  const { isOpen, type } = useSelector((state: RootState) => state.modal);
+  var [showTagname, setShowTagname] = useState("");
   const dispatch = useDispatch();
 
   const showModal = () => {
@@ -83,6 +84,11 @@ export default function NewHeader({ open, toggle, className }: Props) {
       })
     );
   };
+
+  let value = DeBounce(searchText, 500);
+  useEffect(() => {
+    setShowTagname(value);
+  }, [value]);
 
   return (
     // header layout
@@ -112,15 +118,18 @@ export default function NewHeader({ open, toggle, className }: Props) {
 
         {/* Right Header */}
         <div className="flex items-center px-6 h-9">
+          {/* search */}
           <div className="relative h-full flex items-center">
-              <input
-                value={searchText}
-                onChange={(e)=>setSearchText(e.target.value)}
-                className="h-[30px] overflow-hidden rounded-2xl bg-transparent border border-solid border-[#cfcbcb] pl-8 pr-4 w-[140px] text-black focus-visible:border-[#a2a0a2] focus-visible:outline-[#4573d2] outline-3 outline-solid focus:w-[480px] hover:border-[#6a696a]"
-                style={{ transition: "all .3s ease" }}
-                placeholder="Search"
-              />
-              <TagName value={searchText}/>
+            <input
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+              className="h-[30px] overflow-hidden rounded-2xl bg-transparent border border-solid border-[#cfcbcb] pl-8 pr-4 w-[140px] text-black focus-visible:border-[#a2a0a2] focus-visible:outline-[#4573d2] outline-3 outline-solid focus:w-[480px] hover:border-[#6a696a]"
+              style={{ transition: "all .3s ease" }}
+              placeholder="Search"
+            />
+            <TagName value={showTagname} inputHandle={setSearchText}/>
             <SearchOutlined
               className="absolute text-[#6a696a] top-[50%] left-[8px] ml-0"
               style={{ transform: "translateY(-50%)" }}
