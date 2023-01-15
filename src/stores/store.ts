@@ -2,13 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterSlice'
 import modalReducer from './modal-store'
 import resourceReducer from './resource-store'
+import membersReducer from './members-store'
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     modal: modalReducer,
     resource: resourceReducer,
-
+    members: membersReducer
   },
 })
 

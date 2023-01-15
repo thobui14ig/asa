@@ -12,7 +12,6 @@ let SubItem = ({ value, name }: { value: TEAM, name: string }) => {
               <Link
                 to={project._id}
                 className="text-white cursor-pointer text-lg px-4 py-2 pl-14 hover:bg-[#ffffff33] flex items-center"
-                onClick={() => console.log(project._id)}
               >
                 {project.name}
               </Link>
@@ -27,7 +26,6 @@ let SubItem = ({ value, name }: { value: TEAM, name: string }) => {
                     <Link
                       to={`/project/${project._id}`}
                       className="text-white cursor-pointer text-lg px-4 py-2 pl-14 hover:bg-[#ffffff33] flex items-center"
-                      onClick={() => console.log(project._id)}
                     >
                       {project.name}
                     </Link>

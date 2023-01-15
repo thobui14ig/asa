@@ -1,17 +1,13 @@
 import {
   MenuUnfoldOutlined,
-  PlusCircleOutlined,
-  SearchOutlined,
+  PlusCircleOutlined, SearchOutlined
 } from "@ant-design/icons";
 import { Dropdown, Tooltip } from "antd";
-import { useEffect, useState } from "react";
-import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../stores/store";
 import { Header } from "antd/lib/layout/layout";
-import "./Btn.scss";
-import TagName from "../TagName/TagName";
-import DeBounce from "../TagName/components/DeBounce";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
+import { RootState } from "../../stores/store";
 
 interface Props {
   open: boolean;
@@ -19,8 +15,8 @@ interface Props {
   className: any;
 }
 
-export default function NewHeader({ open, toggle, className }: Props) {
-  var items = [
+export default function NewHeader({open,toggle}:Props) {
+  let items = [
     {
       key: "1",
       label: (
@@ -71,10 +67,9 @@ export default function NewHeader({ open, toggle, className }: Props) {
     },
   ];
 
-  var [tooltip, setTooltip] = useState(false);
-  var [searchText, setSearchText] = useState("");
-  var [showTagname, setShowTagname] = useState("");
+  let [tooltip, setTooltip] = useState(false);
   const dispatch = useDispatch();
+  const { resourceTitle } = useSelector((state: RootState) => state.resource)
 
   const showModal = () => {
     dispatch(handleShowModal());
@@ -114,6 +109,11 @@ export default function NewHeader({ open, toggle, className }: Props) {
               <MenuUnfoldOutlined className="text-xl flex items-center" />
             </div>
           )}
+      {/* Left Header */}
+      <div className="">
+        <div>
+          <h1 className="text-2xl">{resourceTitle}</h1>
+          {!open && <MenuUnfoldOutlined className="cursor-pointer text-xl" onClick={()=>toggle()}/>}
         </div>
 
         {/* Right Header */}

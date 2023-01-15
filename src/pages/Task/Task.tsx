@@ -66,7 +66,7 @@ const Task = () => {
                               setIdSectionSelected(item?._id)
                             }}>Add task</span>     
                             :
-                            <input value={taskName} onChange={(e) => setTaskName(e.target.value)} onKeyDown={handleKeyDown} />       
+                            <input style={{ minWidth: 500, border: '1px solid black' }} value={taskName} onChange={(e) => setTaskName(e.target.value)} onKeyDown={handleKeyDown} />       
                           }
                         
                         </div>

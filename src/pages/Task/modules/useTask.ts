@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
 import { useParams } from "react-router"
 import { addResource, getProject } from "../../../api/resources/resource.api"
+import { setResourceTitle } from "../../../stores/resource-store"
 import { SECTION } from "../../../type/resource-type"
 
 const useTask = () => {
     const { id } = useParams()
+    const dispatch = useDispatch()
     const [idChangeTitle, setIdChangeTitle] = useState<string>('')
     const [listIdSectionShow, setListIdSectionShow] = useState<string[]>([])
     const [idSectionSelected, setIdSectionSelected] = useState<string>('')
@@ -27,7 +30,7 @@ const useTask = () => {
       useEffect(() => {
         const fetch = async() => {
           const data = await getProject(id as string)
-        
+          dispatch(setResourceTitle(data?.data?.name))
           setSection(data?.data?.sections)
         }
         fetch()
