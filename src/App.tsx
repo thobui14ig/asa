@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useRoutes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import NewHeader from "./component/Header/Header-New";
-import Headers from "./component/Header/Header-old";
 import ModalAdd from "./component/Modal/Modal";
 import SiderBar from "./component/Siderbar/SiderBar-New";
 import "./index.css";
