@@ -8,6 +8,7 @@ interface props {
 }
 
 export default function TagName({ value , inputHandle}: props) {
+  
   let [Data, setData] = useState([]);
   useEffect(() => {
     const callAPI = async (result: string) => {
@@ -36,16 +37,17 @@ export default function TagName({ value , inputHandle}: props) {
     <>
       {Data.length>0 && (
         <div
-          className="absolute bg-[#1e1f21] w-72 rounded-lg py-2"
+          className="absolute bg-[#1e1f21] w-72 rounded-lg py-2 z-10"
           style={{ top: "100%" }}
         >
-          {Data.map((value: any, key) => {
+          {Data.map((value: any, key) => {  
             return (
               <TagItem
                 key={key}
                 imgSrc={value.avatar}
                 Name={value.full_name}
-                Nickname={value.nickname}S
+                Nickname={value.nickname}
+                value={value}
                 onClick={(Nickname:string) => inputHandle(Nickname)}
               /> 
             );

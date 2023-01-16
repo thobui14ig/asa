@@ -5,11 +5,12 @@ export default function TagItem({
   Name = "Test",
   Nickname = "test",
   onClick,
+  value,
 }: any) {
   return (
     <div
       className="flex items-center h-full w-full overflow-hidden p-2 px-3 hover:bg-[#ffffff1f] cursor-pointer"
-      onClick={() => onClick(Nickname)}
+      onClick={() => onClick(value+"@"+Nickname)}
     >
       <div className="w-10 h-10 rounded-[50%] overflow-hidden">
         <img src={imgSrc} alt={Name} />
