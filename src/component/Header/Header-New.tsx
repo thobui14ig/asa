@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
 import { RootState } from "../../stores/store";
 import useDebounce from "../TagName/components/DeBounce";
+import InputFake from "../TagName/components/InputFake";
 import TagName from "../TagName/TagName";
 
 interface Props {
@@ -100,13 +101,13 @@ export default function NewHeader({ open, toggle, className }: Props) {
         transition: "all 1s ease",
       }}
     >
-      <div className="flex justify-between items-center h-full ">
+      <div className="flex justify-between items-center h-full">
         {/* Left Header */}
-        <div className="flex">
+        <div className="flex items-center">
           <div
             className={`${
               !open
-                ? "p-2 hover:bg-[#0000003d] rounded-md cursor-pointer overflow-hidden"
+                ? "p-2 hover:bg-[#0000003d] rounded-md cursor-pointer overflow-hidden flex items-center"
                 : ""
             }`}
           >
@@ -119,8 +120,8 @@ export default function NewHeader({ open, toggle, className }: Props) {
             )}
           </div>
           <h1 className="text-2xl">{resourceTitle}</h1>
+          <InputFake />
         </div>
-        {/* Left Header */}
         <div className="">
           {/* Right Header */}
           <div className="flex items-center px-6 h-9">
@@ -135,7 +136,7 @@ export default function NewHeader({ open, toggle, className }: Props) {
                 style={{ transition: "all .3s ease" }}
                 placeholder="Search"
               />
-              <TagName value={showTagname} inputHandle={setSearchText} />
+              {/* <TagName value={showTagname} inputHandle={setSearchText} /> */}
               <SearchOutlined
                 className="absolute text-[#6a696a] top-[50%] left-[8px] ml-0"
                 style={{ transform: "translateY(-50%)" }}
