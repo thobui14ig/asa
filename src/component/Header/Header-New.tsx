@@ -136,7 +136,7 @@ export default function NewHeader({ open, toggle, className }: Props) {
                 style={{ transition: "all .3s ease" }}
                 placeholder="Search"
               />
-              <TagName value={showTagname} inputHandle={setSearchText} />
+              {/* <TagName value={showTagname} inputHandle={setSearchText} /> */}
               <SearchOutlined
                 className="absolute text-[#6a696a] top-[50%] left-[8px] ml-0"
                 style={{ transform: "translateY(-50%)" }}
