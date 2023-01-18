@@ -4,11 +4,11 @@ import Item from "./Item";
 
 interface Props {
   item: any;
-  listHeight: Number;
+  listHeight: number;
 }
 
 export default function RenderItem({ item, listHeight }: Props) {
-  var [ToggleMenu, setMenu] = useState(false);
+  const [ToggleMenu, setMenu] = useState(false);
 
   return (
     <li>

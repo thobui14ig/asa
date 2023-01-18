@@ -5,11 +5,11 @@ import useDebounce from "./DeBounce";
 
 export default function InputFake() {
   const inputElement = useRef<HTMLDivElement>(null);
-  let [value, setvalue] = useState("");
-  let [output, setoutput] = useState<any>([]);
-  let [deboundValue, setdeboundValue] = useState([]);
+  const [value, setvalue] = useState("");
+  const [output, setoutput] = useState<any>([]);
+  const [deboundValue, setdeboundValue] = useState([]);
 
-  let result = useDebounce(value, 500);
+  const result = useDebounce(value, 500);
 
   useEffect(() => {
     setdeboundValue(result);
