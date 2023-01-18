@@ -11,7 +11,7 @@ import "./styles/Siderbar.scss";
 
 interface Props {
   open: boolean;
-  toggle: Function;
+  toggle: any;
 }
 
 export default function SiderBar({ open, toggle }: Props) {

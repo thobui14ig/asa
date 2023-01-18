@@ -4,18 +4,17 @@ import "./styles/style.scss";
 
 interface props {
   value: any;
-  inputHandle: Function;
+  inputHandle: any;
 }
 
-export default function TagName({ value, inputHandle }: props) {
-  let [Data, setData] = useState([]);
-  
+export default function TagName({ value , inputHandle}: props) {
+  const [Data, setData] = useState([]);
   useEffect(() => {
     const callAPI = async (result: string) => {
-      let data = await fetch(
+      const data = await fetch(
         `https://tiktok.fullstack.edu.vn/api/users/search?q=${result}&type=less`
       );
-      let res = await data.json();
+      const res = await data.json();
 
       if (res.data.length > 0) {
         setData(res.data);

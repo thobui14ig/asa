@@ -10,54 +10,53 @@ import { Login, Task, Team } from "./pages";
 import Input from "./component/TagName/components/Input-Clone"
 
 function App() {
-  var [SidebarToggle, setSidebar] = useState(true);
+  const [SidebarToggle, setSidebar] = useState(true);
   const ToggleSidebar = () => setSidebar(!SidebarToggle);
   const elements = useRoutes([
     {
-      path: "/",
+      path: '/',
       element: <H1 />,
     },
     {
-      path: "/students",
+      path: '/students',
       element: <H1 />,
     },
     {
-      path: "/team/:id",
+      path: '/team/:id',
       element: <Team />,
     },
     {
-      path: "/project/:id",
+      path: '/project/:id',
       element: <Task />,
     },
     {
-      path: "/login",
+      path: '/login',
       element: <Login />,
     },
   ]);
 
-  const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem('accessToken');
 
   // if (!token) {
   //   return <Login/>
   // }
-
   return (
     <Layout hasSider>
       <SiderBar open={SidebarToggle} toggle={ToggleSidebar} />
       <Layout
         className="site-layout"
         style={{
-          background: "white",
+          background: 'white',
         }}
       >
         {/* <Headers/> */}
-        <NewHeader open={SidebarToggle} toggle={ToggleSidebar} className={`${SidebarToggle ? "ml-60" : "ml-0"}`}/>
+        <NewHeader open={SidebarToggle} toggle={ToggleSidebar} className={`${SidebarToggle ? 'ml-60' : 'ml-0'}`}/>
         <Content
-          className={`${SidebarToggle ? "ml-60" : "ml-0"}`}
+          className={`${SidebarToggle ? 'ml-60' : 'ml-0'}`}
           style={{
             padding: 16,
-            background: "white",
-            transition: "all 1s ease"
+            background: 'white',
+            transition: 'all 1s ease'
           }}
         >
           

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 
 export default function TagItem({
   imgSrc = "https://scontent.fdad3-6.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?_nc_cat=1&ccb=1-7&_nc_sid=7206a8&_nc_ohc=fZXttmBxezQAX_3tXwA&_nc_ht=scontent.fdad3-6.fna&oh=00_AfD7WPqtZz6oBqLlscGDJWaS5z7JjdCFFu7zmaTKmsd4Tw&oe=63E9DEF8",

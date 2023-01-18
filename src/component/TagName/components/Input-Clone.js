@@ -22,7 +22,6 @@ function Input() {
   }, []);
 
   useEffect(() => {
-    console.log(Data);
     let newData = Data.map((user) => {
       return {
         text: (
