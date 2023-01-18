@@ -1,5 +1,6 @@
 import { MentionData } from '@draft-js-plugins/mention';
 
+
 const mentions: MentionData[] = [
   {
     name: 'Matthew Russell',
