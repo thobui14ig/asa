@@ -120,7 +120,6 @@ export default function NewHeader({ open, toggle, className }: Props) {
             )}
           </div>
           <h1 className="text-2xl">{resourceTitle}</h1>
-          <Input />
         </div>
         <div className="">
           {/* Right Header */}

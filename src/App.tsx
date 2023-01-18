@@ -7,6 +7,7 @@ import ModalAdd from "./component/Modal/Modal";
 import SiderBar from "./component/Siderbar/SiderBar-New";
 import "./index.css";
 import { Login, Task, Team } from "./pages";
+import Input from "./component/TagName/components/Input-Clone"
 
 function App() {
   var [SidebarToggle, setSidebar] = useState(true);
@@ -59,7 +60,9 @@ function App() {
             transition: "all 1s ease"
           }}
         >
+          
           {elements}
+          <Input />
         </Content>
       </Layout>
       <ModalAdd />
