@@ -1,0 +1,17 @@
+.Editor {
+    // padding: 0.25rem;
+    .demo-editor.rdw-editor-main{
+        overflow: visible;
+    }
+    .rdw-suggestion-dropdown{
+        border-radius: 0.5px;
+        bottom: auto;
+        top: 100%;
+        width: 240px;
+        background-color: #1e1f21;
+        span{
+            color: white;
+            border-bottom: none;
+        }
+    }
+}
