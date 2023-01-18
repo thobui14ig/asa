@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import './avatar.scss';
 

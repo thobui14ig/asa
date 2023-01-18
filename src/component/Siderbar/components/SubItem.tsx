@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PROJECT, TEAM } from "../../../type/resource-type";
 
-let SubItem = ({ value, name }: { value: TEAM, name: string }) => {
-    let [more, setmore] = useState<string[]>([]);
+const SubItem = ({ value, name }: { value: TEAM, name: string }) => {
+    const [more, setmore] = useState<string[]>([]);
     return (
       <ul className={`${name.includes(value.name) ? "block" : "hidden"} DropdownList`}>
         {value.projects.length <= 3 ? (

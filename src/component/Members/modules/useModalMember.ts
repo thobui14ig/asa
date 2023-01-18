@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import { handleCancleMemberModal } from "../../../stores/members-store";
-import { RootState } from "../../../stores/store";
+import { useDispatch, useSelector } from 'react-redux';
+import { handleCancleMemberModal } from '../../../stores/members-store';
+import { RootState } from '../../../stores/store';
 import { EditorState } from 'draft-js';
 import Editor from '@draft-js-plugins/editor';
 import createMentionPlugin, {
     defaultSuggestionsFilter,
   } from '@draft-js-plugins/mention';
 //   import editorStyles from './SimpleMentionEditor.module.css';
-import { useCallback, useMemo, useRef, useState } from "react";
-import mentions from "./mentions";
+import { useCallback, useMemo, useRef, useState } from 'react';
+import mentions from './mentions';
 
 
 const useModalMember = () => {

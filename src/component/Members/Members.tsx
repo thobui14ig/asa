@@ -37,7 +37,7 @@ const MembersModal = () => {
             <div
                 id="scrollableDiv"
                 style={{
-                    height: 400,
+                    height: 300,
                     overflow: 'auto',
                     padding: '16px 16px',
                     border: '1px solid rgba(140, 140, 140, 0.35)',

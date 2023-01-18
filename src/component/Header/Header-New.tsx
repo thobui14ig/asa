@@ -15,12 +15,12 @@ import TagName from "../TagName/TagName";
 
 interface Props {
   open: boolean;
-  toggle: Function;
+  toggle: any;
   className: any;
 }
 
 export default function NewHeader({ open, toggle, className }: Props) {
-  let items = [
+  const items = [
     {
       key: "1",
       label: (
@@ -71,9 +71,9 @@ export default function NewHeader({ open, toggle, className }: Props) {
     },
   ];
 
-  let [tooltip, setTooltip] = useState(false);
-  let [searchText, setSearchText] = useState("");
-  let [showTagname, setShowTagname] = useState("");
+  const [tooltip, setTooltip] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [showTagname, setShowTagname] = useState("");
   const dispatch = useDispatch();
   const { resourceTitle } = useSelector((state: RootState) => state.resource);
 
@@ -86,7 +86,7 @@ export default function NewHeader({ open, toggle, className }: Props) {
     );
   };
 
-  let value = useDebounce(searchText, 500);
+  const value = useDebounce(searchText, 500);
   useEffect(() => {
     setShowTagname(value);
   }, [value]);
