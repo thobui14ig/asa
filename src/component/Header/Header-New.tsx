@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleSetTitle, handleShowModal } from "../../stores/modal-store";
 import { RootState } from "../../stores/store";
 import useDebounce from "../TagName/components/DeBounce";
-import InputFake from "../TagName/components/InputFake";
+import Input from "../TagName/components/Input-Clone";
 import TagName from "../TagName/TagName";
 
 interface Props {
@@ -120,7 +120,7 @@ export default function NewHeader({ open, toggle, className }: Props) {
             )}
           </div>
           <h1 className="text-2xl">{resourceTitle}</h1>
-          <InputFake />
+          <Input />
         </div>
         <div className="">
           {/* Right Header */}
